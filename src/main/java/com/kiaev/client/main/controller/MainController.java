@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * [메인 및 공통 페이지 컨트롤러]
- * 메인화면, 상담신청, 게시판 등 주요 메뉴의 단순 화면 이동을 처리
+ * 메인화면, 상담신청, 게시판 등 주요 메뉴의 단순 화면 이동 처리
  */
 @Controller
 public class MainController {
