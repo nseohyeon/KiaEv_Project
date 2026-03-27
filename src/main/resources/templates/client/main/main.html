@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>KIA EV - 메인</title>
+</head>
+<script>
+    window.onload = function() {
+        if (!getCookie("hidePopup")) {
+            window.open('/popup', 'EV_Popup', 'width=420,height=500,top=100,left=100');
+        }
+    }
+
+    function setPopupCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        document.cookie = name + "=" + value + ";expires=" + date.toUTCString() + ";path=/";
+    }
+
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+</script>
+<body style="margin:0; padding:0;">
+
+    <!-- 고정 헤더 불러오기 -->
+    <th:block th:replace="~{common/header :: header}"></th:block>
+
+    <!-- 설명: 헤더 높이(100px) + 기존에 원하셨던 여백(30px) 합산 -->
+    <main style="width: 1200px; margin: 0 auto; min-height: 600px; padding-top: 130px;">
+        
+        <div style="width:100%; height:400px; background:#05141f; color:#fff; display:flex; align-items:center; justify-content:center; border-radius:15px;">
+            <h2 style="font-size:40px;">EV9: The All-Electric SUV</h2>
+        </div>
+        
+        <div style="margin-top: 60px;">
+            <h3>KIA EV LINE-UP</h3>
+            <div style="display:flex; justify-content:space-between; margin-top:30px;">
+                <div style="width:30%; height:250px; background:#eee; border-radius:10px;"></div>
+                <div style="width:30%; height:250px; background:#eee; border-radius:10px;"></div>
+                <div style="width:30%; height:250px; background:#eee; border-radius:10px;"></div>
+            </div>
+        </div>
+    </main>
+
+    <th:block th:replace="~{common/footer :: footer}"></th:block>
+
+</body>
+</html>

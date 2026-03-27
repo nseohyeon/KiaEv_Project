@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>KIA EV - 스크롤 테스트</title>
+</head>
+<body style="margin:0; padding:0;">
+
+    <th:block th:replace="~{common/header :: header}"></th:block>
+
+    <main style="width: 1200px; margin: 0 auto; min-height: 2000px; padding: 100px 0; text-align: center; background-color: #f9f9f9;">
+        <div style="padding: 50px; border: 2px dashed #ccc; border-radius: 20px; background: #fff;">
+            <h1 style="font-size: 40px; color: #05141f;">[ 충전소 조회 ]</h1>
+            <p style="font-size: 18px; color: #666; margin-top: 20px;">
+                스크롤을 내려서 푸터 위치를 확인해 보세요!
+            </p>
+            
+            <div style="margin-top: 100px; color: #ccc;">
+                <p th:each="i : ${#numbers.sequence(1, 50)}">내용이 아주 길어지는 중입니다... [[${i}]]</p>
+            </div>
+        </div>
+    </main>
+
+    <th:block th:replace="~{common/footer :: footer}"></th:block>
+
+</body>
+</html>
