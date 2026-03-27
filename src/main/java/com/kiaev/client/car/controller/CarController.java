@@ -31,10 +31,9 @@ public class CarController {
     public String carList(
         @RequestParam(value = "keyword", required = false) String keyword,
         @RequestParam(value = "carType", required = false) String carType,
-        @RequestParam(value = "sort", required = false) String sort, // defaultValue 제거!
+        @RequestParam(value = "sort", required = false) String sort,
         Model model) {
 
-        // 이제 처음 접속 시 sort는 null
         List<Car> cars = carService.searchCars(keyword, carType, sort);
 
         model.addAttribute("cars", cars);

@@ -210,7 +210,7 @@ body {
 			<p>기아의 혁신적인 EV 라인업을 만나보세요.</p>
 		</div>
 
-		<!-- [수정] 검색 필터 - 검색창 + 차종 필터 + 정렬 조건 추가 -->
+		<!-- 검색 필터 - 검색창 + 차종 필터 + 정렬 조건ㄴ -->
 		<form th:action="@{/car/list}" method="get" class="search-wrapper">
 			<!-- 1. 키워드 검색 -->
 			<input type="text" name="keyword" th:value="${keyword}"
@@ -219,25 +219,32 @@ body {
 			<!-- 2. 차종 필터 -->
 			<select name="carType" class="filter-select"
 				onchange="this.form.submit()">
-				<option value="">전체 차종</option>
+				<option value="" th:selected="${carType == null || carType == ''}">전체
+					차종</option>
 				<option value="세단" th:selected="${carType == '세단'}">세단</option>
 				<option value="SUV" th:selected="${carType == 'SUV'}">SUV</option>
+				<option value="경형" th:selected="${carType == '경형'}">경형</option>
 			</select>
 
 			<!-- 3. 정렬 필터 -->
-<select name="sort" class="filter-select" onchange="this.form.submit()">
-    <!-- 모델명 순을 첫 번째 옵션으로 추가 -->
-    <option value="nameAsc" th:selected="${sort == 'nameAsc' || sort == null || sort == ''}">모델명순</option>
-    <option value="latest" th:selected="${sort == 'latest'}">최신 등록순</option>
-    <option value="priceAsc" th:selected="${sort == 'priceAsc'}">가격 낮은순</option>
-    <option value="priceDesc" th:selected="${sort == 'priceDesc'}">가격 높은순</option>
-    <option value="rangeDesc" th:selected="${sort == 'rangeDesc'}">주행거리순</option>
-</select>
+			<select name="sort" class="filter-select"
+				onchange="this.form.submit()">
+				<!-- 모델명 순을 첫 번째 옵션으로 -->
+				<option value="nameAsc"
+					th:selected="${sort == 'nameAsc' || sort == null || sort == ''}">모델명순</option>
+				<option value="latest" th:selected="${sort == 'latest'}">최신
+					등록순</option>
+				<option value="priceAsc" th:selected="${sort == 'priceAsc'}">가격
+					낮은순</option>
+				<option value="priceDesc" th:selected="${sort == 'priceDesc'}">가격
+					높은순</option>
+				<option value="rangeDesc" th:selected="${sort == 'rangeDesc'}">주행거리순</option>
+			</select>
 
 			<button type="submit" class="btn-search">검색하기</button>
 		</form>
 
-		<!-- 차량 그리드 시작 (기존과 동일) -->
+		<!-- 차량 그리드 시작 -->
 		<div class="car-grid">
 			<a th:each="car : ${cars}"
 				th:href="@{/car/detail/{id}(id=${car.carNo})}" class="car-card">

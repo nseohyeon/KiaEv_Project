@@ -4,10 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
 
-/**
- * [차량 정보 엔티티]
- * CAR_TBL 테이블과 매핑되며, 차량의 제원 및 판매 상태 데이터를 관리합니다.
- */
 @Entity
 @Table(name = "CAR_TBL")
 @Getter
@@ -51,7 +47,7 @@ public class Car {
     private String imagePath;       // 차량 이미지 파일 경로
 
     @Column(nullable = false, length = 20)
-    private String saleStatus;      // 판매 상태 (판매중, 판매중지 등)
+    private String saleStatus;      // 판매 상태 (판매중, 품절 등)
 
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt; // 등록 일시

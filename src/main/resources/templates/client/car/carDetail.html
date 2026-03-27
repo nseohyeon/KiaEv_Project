@@ -75,7 +75,6 @@ body {
 	display: block;
 }
 
-/* ... (이하 thumb, price-container 등 기존 스타일 동일) ... */
 .thumb-container {
 	display: flex;
 	gap: 12px;
@@ -315,7 +314,7 @@ body {
 				<div class="main-img-box">
 					<img id="activeImg" th:src="${car.imagePath}">
 				</div>
-				<!-- ... (이하 갤러리 썸네일 구조 동일) ... -->
+				<!-- 갤러리 썸네일 구조 -->
 				<div class="thumb-container">
 					<div class="thumb active" onclick="updatePreview(this)">
 						<img th:src="${car.imagePath}">
@@ -333,7 +332,7 @@ body {
 
 			<!-- 우측 상세 정보 -->
 			<div class="detail-right">
-				<!-- ... (이하 우측 컨텐츠 구조 동일) ... -->
+				
 				<div class="price-container">
 					<div class="status-box">
 						<p class="label-sm">Sale Status</p>
